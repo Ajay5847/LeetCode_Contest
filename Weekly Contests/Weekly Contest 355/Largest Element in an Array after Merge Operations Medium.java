@@ -8,7 +8,7 @@
 
 // Input: nums = [2,3,7,9,3]
 // Output: 21
-// Explanation: We can apply the following operations on the array:
+// Explanation: We can apply the following operations on the array
 // - Choose i = 0. The resulting array will be nums = [5,7,9,3].
 // - Choose i = 1. The resulting array will be nums = [5,16,3].
 // - Choose i = 0. The resulting array will be nums = [21,3].

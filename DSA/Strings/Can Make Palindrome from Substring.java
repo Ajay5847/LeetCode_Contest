@@ -6,9 +6,9 @@
 // the result of the query is true. Otherwise, the result is false.
 // Return a boolean array answer where answer[i] is the result of the ith query queries[i].
 
-// Note that each letter is counted individually for replacement, so if, for example s[lefti...righti] = "aaa", and ki = 2, we can only replace two of the letters. Also, note that no query modifies the initial string s.
-
- 
+// Note that each letter is counted individually for replacement, 
+// so if, for example s[lefti...righti] = "aaa", and ki = 2, 
+// we can only replace two of the letters. Also, note that no query modifies the initial string s.
 
 // Example :
 
@@ -25,10 +25,18 @@
 // Input: s = "lyb", queries = [[0,1,0],[2,2,1]]
 // Output: [false,true]
  
-
 // Constraints:
 
 // 1 <= s.length, queries.length <= 105
 // 0 <= lefti <= righti < s.length
 // 0 <= ki <= s.length
 // s consists of lowercase English letters.
+
+// Intution 
+
+// for Every query we need to create a substring and then find the frequencies of the 
+// selected substring characters the in this we need to find the count of odd frequencies
+// which will result in TLE error !
+
+// So we maintain a occurances matrix which stores the occurances of characters of the string "s"
+// this frequencies are stored in ths order of 

@@ -38,5 +38,59 @@
 // selected substring characters the in this we need to find the count of odd frequencies
 // which will result in TLE error !
 
-// So we maintain a occurances matrix which stores the occurances of characters of the string "s"
-// this frequencies are stored in ths order of 
+// So we maintain a occurances matrix that will hold frequency for each letter seen till index
+// this frequencies are stored in ths order. by copying the previous frequncies.
+// occurances[i][0] = frequencies of "a";
+// occurances[i][1] = frequencies of "ab";
+// occurances[i][2] = frequencies of "abc";
+// occurances[i][3] = frequencies of "abcd";
+// occurances[i][5] = frequencies of "abcda";
+
+// then we need to count the number of oddcnt then return half of it;
+
+class Solution {
+    public List<Boolean> canMakePaliQueries(String s, int[][] queries) {
+        int[][] occurances = new int[s.length()][26];
+        occurances[0][s.charAt(0) - 'a'] = 1;
+        for(int i = 1;i < s.length();i++){
+            for(int j = 0;j < 26;j++){
+                occurances[i][j] = occurances[i - 1][j];
+            }
+            occurances[i][s.charAt(i) - 'a']++;
+        }
+        List<Boolean> ans = new ArrayList<>();
+        for(int i = 0;i < queries.length;i++){
+            int si = queries[i][0];
+            int ei = queries[i][1];
+            int k = queries[i][2];
+            int cnt = isPalindrome(si,ei,occurances);
+            if(cnt == 0 || cnt <= k){
+                ans.add(true);
+            }
+            else{
+                ans.add(false);
+            }
+        }
+        return ans;
+    }
+
+    int isPalindrome(int left,int right,int[][] occurances){
+        int oddcnt = 0;
+        int len = right - left + 1;
+        if(left == 0){
+            for(int i = 0;i < 26;i++){
+                if(occurances[right][i]%2 != 0){
+                    oddcnt++;
+                }
+            }
+        }
+        else{
+            for(int i = 0;i < 26;i++){
+                if((occurances[right][i] - occurances[left - 1][i])%2 != 0){
+                    oddcnt++;
+                }
+            }
+        }
+        return oddcnt/2;
+    }
+}

@@ -14,7 +14,6 @@ class Solution {
                 divSum += i;
             }
         }
-
         return divSum - notDivSum;
     }
 }

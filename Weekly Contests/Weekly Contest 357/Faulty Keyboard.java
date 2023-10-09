@@ -31,7 +31,6 @@
 // After the seventh character, the text is "ponte". 
 // After the eighth character, the text is "ponter". 
 // Therefore, we return "ponter".
- 
 
 // Constraints:
 
@@ -41,22 +40,21 @@
 
 class Solution {
     public String finalString(String s) {
-        String[] arr = new String[1];
         String ans = "";
-        for(int i = 0;i < s.length();i++){
-            if(s.charAt(i) == 'i'){
+        for (int i = 0; i < s.length(); i++) {
+            if (s.charAt(i) == 'i') {
                 String rev = reverse(ans);
                 ans = rev;
-            }else{
+            } else {
                 ans += s.charAt(i);
             }
         }
         return ans;
     }
-    
-    String reverse(String k){
+
+    String reverse(String k) {
         String rev = "";
-        for(int i = k.length() - 1;i >= 0;i--){
+        for (int i = k.length() - 1; i >= 0; i--) {
             rev += k.charAt(i);
         }
         return rev;

@@ -7,7 +7,7 @@
 // A string a is lexicographically smaller than a string b (of the same length) if in the first position where a and b differ, string a has a letter that appears earlier in the alphabet than the corresponding letter in b.
 // A substring is a contiguous sequence of characters within a string.
 
-// Example 1:
+// Example 1 :
 
 // Input: a = "abc", b = "bca", c = "aaa"
 // Output: "aaabca"
